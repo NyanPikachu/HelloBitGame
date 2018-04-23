@@ -18,7 +18,7 @@ async def get_pre(bot, message):
 
 bot = commands.Bot(command_prefix="+", description="This is an example bot", owner_id=279974491071709194)
 
-async def save_prefix(self, prefix, guildID):
+async def save_prefix(prefix, guildID):
     await self.db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
 
 @bot.event
@@ -36,7 +36,7 @@ async def say(ctx, *, msg: str):
     
 @commands.command()
 @commands.has_permissions(manage_messages=True)
-async def prefix(self, ctx, prefix=None):
+async def prefix(ctx, prefix=None):
     """Change Prefix of the server"""
     guildID = str(ctx.guild.id)
     if not prefix:
