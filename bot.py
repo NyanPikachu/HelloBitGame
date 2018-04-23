@@ -35,7 +35,7 @@ async def say(ctx, *, msg: str):
     await message.delete()
     await ctx.send(msg)
     
-@commands.command()
+@bot.command()
 @commands.has_permissions(manage_messages=True)
 async def prefix(ctx, prefix=None):
     """Change Prefix of the server"""
