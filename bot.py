@@ -16,7 +16,7 @@ async def get_pre(bot, message):
     return result['prefix']
 
 
-bot = commands.Bot(command_prefix="+", description="This is an example bot", owner_id=279974491071709194)
+bot = commands.Bot(command_prefix=get_pre, description="This is an example bot", owner_id=279974491071709194)
 
 async def save_prefix(prefix, guildID):
     await self.db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
