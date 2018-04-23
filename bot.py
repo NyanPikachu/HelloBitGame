@@ -48,7 +48,7 @@ async def prefix(ctx, prefix=None):
     if not prefix:
         await ctx.send('Please provide a prefix for this command to work')
     try:
-        await self.save_prefix(prefix, guildID)
+        await save_prefix(prefix, guildID)
         await ctx.send(f'Prefix `{prefix}` successfully saved (re-run this command to replace it)')
     except Exception as e:
         await ctx.send(f'Something went wrong\nError Log: `str({e})`')
