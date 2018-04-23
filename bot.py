@@ -19,7 +19,7 @@ async def get_pre(bot, message):
 bot = commands.Bot(command_prefix="+", description="This is an example bot", owner_id=279974491071709194)
 
 async def save_prefix(self, prefix, guildID):
-await self.db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
+    await self.db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
 
 @bot.event
 async def on_ready():
@@ -33,5 +33,18 @@ async def ping(ctx):
 async def say(ctx, *, msg: str):
     await message.delete()
     await ctx.send(msg)
+    
+@commands.command()
+@commands.has_permissions(manage_messages=True)
+async def prefix(self, ctx, prefix=None):
+    """Change Prefix of the server"""
+    guildID = str(ctx.guild.id)
+    if not prefix:
+        await ctx.send('Please provide a prefix for this command to work')
+    try:
+        await self.save_prefix(prefix, guildID)
+        await ctx.send(f'Prefix `{prefix}` successfully saved (re-run this command to replace it)')
+    except Exception as e:
+        await ctx.send(f'Something went wrong\nError Log: `{e}`')
     
 bot.run(os.environ.get("TOKEN"))
