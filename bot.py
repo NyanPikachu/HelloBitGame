@@ -2,9 +2,9 @@ import discord
 from discord.ext import commands
 import os
 import sys
-import motor.motor_asyncio
+from motor import motor_asyncio
 
-dbclient = motor.motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
+dbclient = motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
 db = dbclient.hellobitgame
 
 async def get_pre(bot, message):
@@ -46,6 +46,6 @@ async def prefix(ctx, prefix=None):
         await self.save_prefix(prefix, guildID)
         await ctx.send(f'Prefix `{prefix}` successfully saved (re-run this command to replace it)')
     except Exception as e:
-        await ctx.send(f'Something went wrong\nError Log: `{e}`')
+        await ctx.send(f'Something went wrong\nError Log: `str({e})`')
     
 bot.run(os.environ.get("TOKEN"))
