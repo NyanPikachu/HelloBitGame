@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import os
 import sys
+import motor
 
 dbclient = motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
 db = dbclient.hellobitgame
