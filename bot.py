@@ -4,7 +4,7 @@ import os
 import sys
 import motor.motor_asyncio
 
-dbclient = motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
+dbclient = motor.motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
 db = dbclient.hellobitgame
 
 async def get_pre(bot, message):
