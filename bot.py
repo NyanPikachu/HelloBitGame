@@ -20,7 +20,7 @@ async def get_pre(bot, message):
 bot = commands.Bot(command_prefix=get_pre, description="This is an example bot", owner_id=279974491071709194)
 
 async def save_prefix(prefix, guildID):
-    await self.db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
+    await db.settings.update_one({'_id': guildID}, {'$set': {'_id': guildID, 'prefix': prefix}}, upsert=True)
 
 @bot.event
 async def on_ready():
