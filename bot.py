@@ -59,7 +59,7 @@ async def prefix(ctx, prefix=None):
     """Change Prefix of the server"""
     guildID = str(ctx.guild.id)
     if not prefix:
-        await ctx.send('Please provide a prefix for this command to work')
+        return await ctx.send('Please provide a prefix for this command to work')
     try:
         await save_prefix(prefix, guildID)
         await ctx.send(f'Prefix `{prefix}` successfully saved (re-run this command to replace it)')
