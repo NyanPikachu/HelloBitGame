@@ -3,6 +3,8 @@ from discord.ext import commands
 import os
 import sys
 from motor import motor_asyncio
+import requests
+import json
 
 dbclient = motor_asyncio.AsyncIOMotorClient('mongodb://hellobitgame:' + os.environ.get("DBPASS") + '@ds255329.mlab.com:55329/hellobitgame')
 db = dbclient.hellobitgame
@@ -33,6 +35,17 @@ async def ping(ctx):
     em = discord.Embed(color=discord.Color.gold())
     em.title = "Pong!"
     em.description = f'{bot.latency * 1000:.0f} ms'
+    await ctx.send(embed=em)
+    
+@bot.command()
+async def getmygames(ctx, steamid):
+    resp = requests.get(f"http://api.steampowered.com/iplayerservice/getownedgames/v0001/?key=c82192eae76ff13e92aa7b3355b9aa44&steamid={steamid}&format=json")
+    data = resp.json()
+    em =discord.Embed(color=discord.Color.blue())
+    em.title = steamid
+    em.description = f"You own {data['response']['game_count']} games!"
+    for ids in data['response']['games']:
+        em.add_field(f"{ids['appid']} and {ids['playtime_forever']}")
     await ctx.send(embed=em)
     
 @bot.command()
