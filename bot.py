@@ -45,7 +45,7 @@ async def getmygames(ctx, steamid):
     em.title = steamid
     em.description = f"You own {data['response']['game_count']} games!"
     for ids in data['response']['games']:
-        em.add_field(name=ids['appid'], value=ids['playtime_forever'])
+        em.add_field(name=f"id : {ids['appid']}", value=f"{ids['playtime_forever']} hours played")
     await ctx.send(embed=em)
     
 @bot.command()
