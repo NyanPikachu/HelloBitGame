@@ -53,7 +53,7 @@ async def prefix(ctx, prefix=None):
     
 @bot.command()
 async def suggest(ctx, *, suggestion=None):
-    """suggest a feature to be added!"""
+    """suggest a feature to be added"""
     if not suggestion:
         em = discord.Embed(color=utils.random_color())
         em.title = f'Usage: {ctx.prefix}suggest <suggestion>'
