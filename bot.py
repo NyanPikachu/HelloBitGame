@@ -53,20 +53,20 @@ async def prefix(ctx, prefix=None):
     
 @bot.command()
 async def suggest(ctx, *, suggestion=None):
-    """suggest a feature to be added"""
-    if not suggestion:
-        em = discord.Embed(color=utils.random_color())
-        em.title = f'Usage: {ctx.prefix}suggest <suggestion>'
-        em.description ='suggest a feature to be added!'
-        return await ctx.send(embed=em)
-    ch = bot.get_channel(377192503474126866)
-    em = discord.Embed(color=utils.random_color())
-    em.description = str(suggestion)
-    em.title = 'Suggestion'
-    em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
+    """suggest a feature to be added"""
+    if not suggestion:
+        em = discord.Embed(color=utils.random_color())
+        em.title = f'Usage: {ctx.prefix}suggest <suggestion>'
+        em.description ='suggest a feature to be added!'
+        return await ctx.send(embed=em)
+    ch = bot.get_channel(377192503474126866)
+    em = discord.Embed(color=utils.random_color())
+    em.description = str(suggestion)
+    em.title = 'Suggestion'
+    em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
     em.set_footer(text="Bot created By Nyan Pikachu#4148")
-    await ch.send(embed=em)
-    await ctx.send('Thanks for your suggestion Soldier!')
+    await ch.send(embed=em)
+    await ctx.send('Thanks for your suggestion Soldier!')
     
 @bot.command()
 async def bug(ctx, type=None, *, body=None):
@@ -75,21 +75,21 @@ async def bug(ctx, type=None, *, body=None):
     
     if type not in possible_types:
         em = discord.Embed(color=utils.random_color())
-        em.title = f'{ctx.prefix}bug <bug-type> <description>'
-        em.description ='Report a hug within BattleBit!'
+        em.title = f'{ctx.prefix}bug <bug-type> <description>'
+        em.description ='Report a hug within BattleBit!'
         em.add_field(name='Types:', value=", ".join(possible_types))
-        return await ctx.send(embed=em)
+        return await ctx.send(embed=em)
     if not body:
         em = discord.Embed(color=utils.random_color())
-        em.title = f'{ctx.prefix}bug <bug-type> <description>'
-        em.description ='Report a hug within BattleBit!'
+        em.title = f'{ctx.prefix}bug <bug-type> <description>'
+        em.description ='Report a hug within BattleBit!'
         em.add_field(name='Types:', value=", ".join(possible_types))
-        return await ctx.send(embed=em)
+        return await ctx.send(embed=em)
 
     ch = bot.get_channel(377192455679901706)
     
     em = discord.Embed(color=utils.random_color())
-    em.title = 'Bug Reported"
+    em.title = 'Bug Reported'
     em.description = str(body)
     em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
     em.set_footer(text="Bot created By Nyan Pikachu#4148")
