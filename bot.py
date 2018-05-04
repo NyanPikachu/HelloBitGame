@@ -98,7 +98,7 @@ async def bug(ctx, type=None, *, body=None):
 
 @bot.command(aliases=['ui'])
 @commands.guild_only()
-    async def userinfo(ctx, user: discord.Member=None):
+async def userinfo(ctx, user: discord.Member=None):
     """user info"""
     if not user:
         user = ctx.author
