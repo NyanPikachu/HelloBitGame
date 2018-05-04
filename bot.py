@@ -59,7 +59,7 @@ async def suggest(ctx, *, suggestion=None):
         em.title = f'Usage: {ctx.prefix}suggest <suggestion>'
         em.description ='suggest a feature to be added!'
         return await ctx.send(embed=em)
-    ch = bot.get_channel(377192503474126866)
+    ch = bot.get_channel(442059237519130625)
     em = discord.Embed(color=utils.random_color())
     em.description = str(suggestion)
     em.title = 'Suggestion'
@@ -76,17 +76,17 @@ async def bug(ctx, type=None, *, body=None):
     if type not in possible_types:
         em = discord.Embed(color=utils.random_color())
         em.title = f'{ctx.prefix}bug <bug-type> <description>'
-        em.description ='Report a hug within BattleBit!'
+        em.description ='Report a bug within BattleBit!'
         em.add_field(name='Types:', value=", ".join(possible_types))
         return await ctx.send(embed=em)
     if not body:
         em = discord.Embed(color=utils.random_color())
         em.title = f'{ctx.prefix}bug <bug-type> <description>'
-        em.description ='Report a hug within BattleBit!'
+        em.description ='Report a bug within BattleBit!'
         em.add_field(name='Types:', value=", ".join(possible_types))
         return await ctx.send(embed=em)
 
-    ch = bot.get_channel(377192455679901706)
+    ch = bot.get_channel(442059253453160470)
     
     em = discord.Embed(color=utils.random_color())
     em.title = 'Bug Reported'
