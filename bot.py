@@ -90,7 +90,9 @@ async def bug(ctx, type=None, *, body=None):
     
     em = discord.Embed(color=utils.random_color())
     em.title = 'Bug Reported'
-    em.description = str(body)
+    em.description = 'A bug has been reported!'
+    em.add_field(name='Bug Type:', value=type)
+    em.add_field(name='Description:', value=body)
     em.set_author(name=ctx.author.name, icon_url=ctx.author.avatar_url)
     em.set_footer(text="Bot created By Nyan Pikachu#4148")
     await ch.send(embed=em)
